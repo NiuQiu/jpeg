@@ -36,7 +36,7 @@ cv::Mat *DCT::do_block_dct(cv::Mat &input) {
     input.convertTo(input_dct, CV_32FC1);
 
     // TODO Perform DCT, store result in output_dct and return it.
-    cv::Mat result = ((_dct_mat)->mul(input_dct)).mul(*_dct_mat_t);
+    cv::Mat result = ((*(_dct_mat)) *(input)) * (*_dct_mat_t);
     for(int i = 0; i < 8; i++){
         for(int j = 0; j < 8; j++){
             output_dct->at<float>(i,j) = result.at<float>(i,j);
@@ -51,7 +51,7 @@ cv::Mat *DCT::do_block_idct(cv::Mat &input) {
     input.convertTo(input_dct, CV_32FC1);
 
     // TODO Perform IDCT and return output_idct
-    cv::Mat result = ((_dct_mat)->mul(input_dct)).mul(*_dct_mat_t);
+    cv::Mat result = ((*(_dct_mat_t)) *(input)) * (*_dct_mat);
     for(int i = 0; i < 8; i++){
         for(int j = 0; j < 8; j++){
             output_idct->at<float>(i,j) = result.at<float>(i,j);

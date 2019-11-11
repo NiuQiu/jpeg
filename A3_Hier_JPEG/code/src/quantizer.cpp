@@ -1,5 +1,8 @@
 #include "quantizer.hpp"
 
+#include <cmath>
+#include <iostream>
+using namespace std;
 void Quantizer::set_default() {
     float *y_quant_table_ptr = (float *) _y_quant_table->data;
     
@@ -90,16 +93,22 @@ cv::Mat *Quantizer::quantize(cv::Mat &input, bool y) {
 
     // TODO Perform Quantization, store result in quantized_round
     auto input_ptr = input.data;
+
     //  if y is true -> use Luma quantization table
     if(y){
-        for(int i=0; i < 64; i++){
-            quantized_ptr[i] = round((static_cast<float>(input_ptr[i]) / _y_quant_table->at<float>(i/8,i%8)));
+        for(int row = 0; row < 8; row++){
+            for(int col = 0; col < 8; col++){
+                quantized->at<float>(row,col) = std::round(input.at<float>(row,col) / _y_quant_table->at<float>(row,col));
+            }
+            row = row;
         }
     }
     //  if y is false -> use Chroma quantization table
     else{
-        for(int i=0; i < 64; i++){
-            quantized_ptr[i] = round((static_cast<float>(input_ptr[i]) / _uv_quant_table->at<float>(i/8,i%8)));
+        for(int row = 0; row < 8; row++){
+            for(int col = 0; col < 8; col++){
+                quantized->at<float>(row,col) = std::round(input.at<float>(row,col) / _uv_quant_table->at<float>(row,col));
+            }
         }
     }
     // Quantization

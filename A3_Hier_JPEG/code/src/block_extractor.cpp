@@ -40,9 +40,9 @@ void BlockExtractor::extract_blocks(const cv::Mat &mat) {
             for(int i = 0; i < 8; i++){
                 for(int j = 0; j < 8; j++){
                     if(std::isnan(_cur_sub.at<float>(i,j))){
-                        toAdd->at<float>(i, j) =_cur_sub.at<float>(i,j-1);
+                        toAdd->at<float>(i, j) =_cur_sub.at<unsigned char>(i,j-1);
                     }else{
-                        toAdd->at<float>(i, j) =_cur_sub.at<float>(i,j);
+                        toAdd->at<float>(i, j) =_cur_sub.at<unsigned char>(i,j);
                     }
                 }
             }

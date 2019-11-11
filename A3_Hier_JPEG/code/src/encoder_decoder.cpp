@@ -50,7 +50,6 @@ void EncoderDecoder::encode() {
     Quantizer *quantizer = new Quantizer(quantization_level);
     ZigZagScanner *scanner = new ZigZagScanner();
     auto loop_size = y_block_vector->size();
-    cout<<"************* encoding ************"<<endl;
     encode(dct, quantizer, scanner, y_block_vector, y_block_ext, loop_size);
     encode(dct, quantizer, scanner, u_block_vector, u_block_ext, loop_size, false);
     encode(dct, quantizer, scanner, v_block_vector, v_block_ext, loop_size, false);
@@ -66,7 +65,6 @@ cv::Mat *EncoderDecoder::decode() {
     ZigZagScanner *scanner = new ZigZagScanner();
 
     auto loop_size = y_block_vector->size();
-    cout<<"************* decoding ************"<<endl;
     cv::Mat *decoded_y = decode(dct, quantizer, scanner, y_block_vector, y_block_ext, loop_size);
     cv::Mat *decoded_u = decode(dct, quantizer, scanner, u_block_vector, u_block_ext, loop_size, false);
     cv::Mat *decoded_v = decode(dct, quantizer, scanner, v_block_vector, v_block_ext, loop_size, false);
@@ -123,7 +121,6 @@ cv::Mat *EncoderDecoder::encode_decode() {
     return bgr_output;
 }
 
-
 void
 EncoderDecoder::encode(DCT *dct, Quantizer *quantizer, ZigZagScanner *scanner, std::vector<cv::Mat *> *samples_vector,
                        BlockExtractor *sampler, int loop_size, bool y) {
@@ -136,34 +133,14 @@ EncoderDecoder::encode(DCT *dct, Quantizer *quantizer, ZigZagScanner *scanner, s
     // loop over the blocks
     for (int j = 0; j < loop_size; j++) {
         cv::Mat y_input = *(samples_vector->at(j));
-        if(j==0 && y){
-            cout<<"first 8 x 8 matrix"<<endl;
-            cout<<y_input<<endl;
-        }
         // DCT
         cv::Mat *dct_output = dct->do_block_dct(y_input);
-        if(j==0 && y){
-            cout<<"first 8 x 8 matrix after DCT"<<endl;
-            cout<<*dct_output<<endl;
-        }
         // Quantization
         cv::Mat *quantized = quantizer->quantize(*dct_output, y);
-        if(j==0 && y){
-            cout<<"first 8 x 8 matrix after quantization"<<endl;
-            cout<<*quantized<<endl;
-        }
 
         // ZigZag scan
         auto scanner_output = scanner->scan(*quantized);
         auto scanner_output_size = scanner_output->size();
-
-        if(j == 0 && y){
-            for(int i=0;i<scanner_output_size;i++){
-                cout<<  scanner_output->at(i) <<", ";
-            }
-            cout<<endl;
-
-        }
 
         // TODO Apply DPCM for DC components
         // DPCM
@@ -218,14 +195,6 @@ EncoderDecoder::encode(DCT *dct, Quantizer *quantizer, ZigZagScanner *scanner, s
             }
         }
 
-//        if(j == 0 && y){
-//            cout<< "huffman_input size: "<< huffman_input.size() <<endl;
-//            for(int i=0; i< huffman_input.size();i++ ){
-//                cout<<huffman_input[i]<<", ";
-//            }
-//            cout<<endl;
-//        }
-
         Huffman *huff = new Huffman(huffman_input);
         huff->encode();
         sampler->add_huffman(huff);
@@ -248,14 +217,6 @@ EncoderDecoder::decode(DCT *dct, Quantizer *quantizer, ZigZagScanner *scanner, s
         huf->decode();
 
         auto huffman_output = huf->get_decoded_vector();
-        if(i==0 && y){
-            cout<<"huffman_output size: "<<huffman_output.size()<<endl;
-            for(int i=0; i<huffman_output.size(); i++){
-                cout<<huffman_output.at(i)<<", ";
-            }
-
-            cout<<endl;
-        }
         // inverse RLC
         std::vector<float> decoded_vector;
         bool is_dc = true;
@@ -295,21 +256,9 @@ EncoderDecoder::decode(DCT *dct, Quantizer *quantizer, ZigZagScanner *scanner, s
 
 
         cv::Mat *dequant_input = scanner->descan(decoded_vector);
-        if(i==0 && y){
-            cout<<"first 8 x 8 matrix after descan"<<endl;
-            cout<<*dequant_input<<endl;
-        }
         cv::Mat *dequantized = quantizer->dequantize(*dequant_input, y);
-        if(i==0 && y){
-            cout<<"first 8 x 8 matrix after dequantize"<<endl;
-            cout<<*dequantized<<endl;
-        }
 
         cv::Mat *idct_output = dct->do_block_idct(*dequantized);
-        if(i==0 && y){
-            cout<<"first 8 x 8 matrix after idct"<<endl;
-            cout<<*idct_output<<endl;
-        }
 
         (*idct_output).copyTo((*decoded)(cv::Rect(curr_col * 8, curr_row * 8, 8, 8)));
         curr_col++;

@@ -6,5 +6,5 @@ CXX_FLAGS =  -ldl -g   -lpthread -std=c++0x -ldl
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/cmpt365/assignments/A3_Hier_JPEG/code -isystem /usr/local/include/opencv4 
+CXX_INCLUDES = -I/home/cmpt365/CLionProjects/jpeg/A3_Hier_JPEG/code -isystem /usr/local/include/opencv4 
 

@@ -1,4 +1,4 @@
-/home/cmpt365/Desktop/clion-2019.2.5/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/cmpt365/assignments/A3_Hier_JPEG/code
+/home/cmpt365/Desktop/clion-2019.2.5/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/cmpt365/CLionProjects/jpeg/A3_Hier_JPEG/code
 -- The C compiler identification is GNU 7.4.0
 -- The CXX compiler identification is GNU 7.4.0
 -- Check for working C compiler: /usr/bin/cc
@@ -17,4 +17,4 @@
 -- Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE) 
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/cmpt365/assignments/A3_Hier_JPEG/code/cmake-build-debug
+-- Build files have been written to: /home/cmpt365/CLionProjects/jpeg/A3_Hier_JPEG/code/cmake-build-debug
