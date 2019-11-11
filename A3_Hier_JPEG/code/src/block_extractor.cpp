@@ -36,7 +36,7 @@ void BlockExtractor::extract_blocks(const cv::Mat &mat) {
     for(int row = 0; row < _per_row; row++){
         for(int col = 0; col < _per_col; col++){
             cv::Mat _cur_sub = mat(cv::Range(row * 8, row * 8 + 8), cv::Range(col * 8, col * 8 + 8));
-            cv::Mat *toAdd = new cv::Mat(8,8,CV_8U);
+            cv::Mat *toAdd = new cv::Mat(8,8,CV_32FC1);
             for(int i = 0; i < 8; i++){
                 for(int j = 0; j < 8; j++){
                     if(std::isnan(_cur_sub.at<float>(i,j))){

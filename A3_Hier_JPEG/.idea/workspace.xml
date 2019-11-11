@@ -11,7 +11,14 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bc24f42-887b-4e53-88cd-9b37355758b5" name="Default Changelist" comment="" />
+    <list default="true" id="6bc24f42-887b-4e53-88cd-9b37355758b5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/cmake-build-debug/CMakeFiles/jhier.dir/src/encoder_decoder.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/code/cmake-build-debug/CMakeFiles/jhier.dir/src/encoder_decoder.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/cmake-build-debug/jhier" beforeDir="false" afterPath="$PROJECT_DIR$/code/cmake-build-debug/jhier" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/encoder_decoder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/encoder_decoder.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/quantizer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/quantizer.cpp" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,11 +29,17 @@
     <option name="formatViaClangd" value="false" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectId" id="1TMYYwWy1Vsz5zB4kXM1MxtnZ1Z" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/code/src/block_extractor.cpp" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/code/src/block_extractor.cpp" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -64,31 +77,27 @@
       <workItem from="1573322142181" duration="15545000" />
       <workItem from="1573338846005" duration="14135000" />
       <workItem from="1573362852274" duration="17091000" />
-      <workItem from="1573425203083" duration="6443000" />
+      <workItem from="1573425203083" duration="8666000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/code/src/encoder_decoder.cpp</url>
-          <line>53</line>
-          <option name="timeStamp" value="136" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/code/src/encoder_decoder.cpp</url>
-          <line>54</line>
-          <option name="timeStamp" value="137" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/code/src/encoder_decoder.cpp</url>
-          <line>55</line>
-          <option name="timeStamp" value="138" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/code/src/encoder_decoder.cpp</url>
           <line>102</line>
@@ -123,21 +132,6 @@
           <url>file://$PROJECT_DIR$/code/src/encoder_decoder.cpp</url>
           <line>98</line>
           <option name="timeStamp" value="183" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/code/src/encoder_decoder.cpp</url>
-          <line>176</line>
-          <option name="timeStamp" value="184" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/code/src/encoder_decoder.cpp</url>
-          <line>189</line>
-          <option name="timeStamp" value="185" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/code/src/encoder_decoder.cpp</url>
-          <line>193</line>
-          <option name="timeStamp" value="186" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

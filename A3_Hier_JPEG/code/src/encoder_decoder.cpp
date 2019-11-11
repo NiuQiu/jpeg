@@ -218,13 +218,13 @@ EncoderDecoder::encode(DCT *dct, Quantizer *quantizer, ZigZagScanner *scanner, s
             }
         }
 
-        if(j == 0 && y){
-            cout<< "huffman_input size: "<< huffman_input.size() <<endl;
-            for(int i=0; i< huffman_input.size();i++ ){
-                cout<<huffman_input[i]<<", ";
-            }
-            cout<<endl;
-        }
+//        if(j == 0 && y){
+//            cout<< "huffman_input size: "<< huffman_input.size() <<endl;
+//            for(int i=0; i< huffman_input.size();i++ ){
+//                cout<<huffman_input[i]<<", ";
+//            }
+//            cout<<endl;
+//        }
 
         Huffman *huff = new Huffman(huffman_input);
         huff->encode();
@@ -283,14 +283,14 @@ EncoderDecoder::decode(DCT *dct, Quantizer *quantizer, ZigZagScanner *scanner, s
             }
         }
 
-        if(i==0 && y){
-            cout<<"After RLC: "<<decoded_vector.size()<<endl;
-            for(int i=0; i<decoded_vector.size(); i++){
-                cout<<decoded_vector.at(i)<<", ";
-            }
-
-            cout<<endl;
-        }
+//        if(i==0 && y){
+//            cout<<"After RLC: "<<decoded_vector.size()<<endl;
+//            for(int i=0; i<decoded_vector.size(); i++){
+//                cout<<decoded_vector.at(i)<<", ";
+//            }
+//
+//            cout<<endl;
+//        }
 
 
 

@@ -116,17 +116,16 @@ cv::Mat *Quantizer::dequantize(cv::Mat &input, bool y) {
     float *uv_quant_table_ptr = (float *) _uv_quant_table->data;
 
     // TODO Perform Dequantization, store result in dequantized
-    auto *quantized_input_ptr = input.data;  
     //  if y is true -> use Luma quantization table
     if(y){
         for(int i=0; i < 64; i++){
-            dequantized_ptr[i] = (static_cast<float>(quantized_input_ptr[i]) * _y_quant_table->at<float>(i/8,i%8));
+            dequantized_ptr[i] = input_ptr[i] * y_quant_table_ptr[i];
         }
     }
     //  if y is false -> use Chroma quantization table
     else{
         for(int i=0; i < 64; i++){
-            dequantized_ptr[i] = (static_cast<float>(quantized_input_ptr[i]) * _uv_quant_table->at<float>(i/8,i%8));
+            dequantized_ptr[i] =  input_ptr[i] * uv_quant_table_ptr[i];
         }
     }
     // De-Quantization
